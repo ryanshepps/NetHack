@@ -8,7 +8,7 @@ public class Item  {
     private int id;
     private String name;
     private String type;
-    private Point point;
+    private Point xyLocation;
     private Room currentRoom;
     private String description;
     private Character displayCharacter;
@@ -35,7 +35,7 @@ public class Item  {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
 
@@ -75,12 +75,12 @@ public class Item  {
 
 
     public Point getXyLocation() {
-        return point;
+        return xyLocation;
     }
 
 
     public void setXyLocation(Point newXyLocation) {
-          this.point = newXyLocation;
+          this.xyLocation = newXyLocation;
     }
 
 
