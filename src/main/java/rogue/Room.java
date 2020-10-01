@@ -1,5 +1,5 @@
 package rogue;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.Map;
 import java.awt.Point;
 
@@ -8,98 +8,75 @@ import java.awt.Point;
  * A room within the dungeon - contains monsters, treasure,
  * doors out, etc.
  */
-public class Room  {
+public class Room {
+      private int id;
+      private int width;
+      private int height;
+      private ArrayList<Item> roomItems;
+      private Player player;
 
-  
+      // Default constructor
+      public Room() {
 
-    // Default constructor
- public Room() {
+      }
 
- }
+      // Required getter and setters below
+      public int getWidth() {
+            return width;
+      }
 
- 
+      public void setWidth(int newWidth) {
+            this.width = newWidth;
+      }
 
+      public int getHeight() {
+            return height;
+      }
 
-   // Required getter and setters below
+      public void setHeight(int newHeight) {
+            this.height = newHeight;
+      }
 
- 
- public int getWidth() {
+      public int getId() {
+            return id;
+      }
 
-return 0;
- }
+      public void setId(int newId) {
+            this.id = newId;
+      }
 
- 
- public void setWidth(int newWidth) {
+      public ArrayList<Item> getRoomItems() {
+            return this.roomItems;
+      }
 
- }
+      public void setRoomItems(ArrayList<Item> newRoomItems) {
+            this.roomItems = newRoomItems;
+      }
 
- 
- public int getHeight() {
+      public Player getPlayer() {
+            return player;
+      }
 
-return 0;
- }
+      public void setPlayer(Player newPlayer) {
+            this.player = newPlayer;
+      }
 
+      public int getDoor(String direction){
+            return 0;
+      }
 
- public void setHeight(int newHeight) {
- }
+      /*
+      direction is one of NSEW
+      location is a number between 0 and the length of the wall
+      */
 
- public int getId() {
-    return 0;
+      public void setDoor(String direction, int location){
 
- }
+      }
 
-
- public void setId(int newId) {
-
- }
-
-
- public ArrayList<Item> getRoomItems() {
-    return null;
-
- }
-
-
- public void setRoomItems(ArrayList<Item> newRoomItems) {
-
- }
-
-
- public Player getPlayer() {
-    return null;
-
- }
-
-
- public void setPlayer(Player newPlayer) {
-
- }
-
-
- 
-
-
-
- public int getDoor(String direction){
-
-    return 0;
-
- }
-
-/*
-direction is one of NSEW
-location is a number between 0 and the length of the wall
-*/
-
-public void setDoor(String direction, int location){
-
-}
-
-
-public boolean isPlayerInRoom() {
-
-return true;
-}
+      public boolean isPlayerInRoom() {
+            return true;
+      }
 
 
 
@@ -110,7 +87,7 @@ return true;
     */
    public String displayRoom() {
     return null;
-     
-     
+
+
    }
 }
