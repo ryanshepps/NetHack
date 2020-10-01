@@ -5,93 +5,91 @@ import java.awt.Point;
  * A basic Item class; basic functionality for both consumables and equipment
  */
 public class Item  {
-
-
+    private int id;
+    private String name;
+    private String type;
+    private Point point;
+    private Room currentRoom;
+    private String description;
+    private Character displayCharacter;
 
     //Constructors
     public Item() {
-        
+
     }
 
     public Item(int id, String name, String type, Point xyLocation) {
-
+          this.id = id;
+          this.name = name;
+          this.type = type;
+          this.xyLocation = xyLocation;
     }
-    
+
     // Getters and setters
-
-
     public int getId() {
-        return 0;
-       
+        return id;
     }
-
 
     public void setId(int id) {
-
+          this.id = id;
     }
 
-
     public String getName() {
-        return null;
+        return Name;
     }
 
 
     public void setName(String name) {
-
+          this.name = name;
     }
 
 
     public String getType() {
-        return null;
-
+        return type;
     }
 
 
     public void setType(String type) {
-
+          this.type = type;
     }
-    
+
 
     public Character getDisplayCharacter() {
-        return null;
-        
+        return displayCharacter;
     }
 
 
     public void setDisplayCharacter(Character newDisplayCharacter) {
-        
+          this.displayCharacter = newDisplayCharacter;
     }
 
 
     public String getDescription() {
-        return null;
-     
+        return description;
     }
 
 
     public void setDescription(String newDescription) {
-     
+          this.description = newDescription;
     }
 
 
     public Point getXyLocation() {
-        return null;
-     
+        return point;
     }
 
-    
+
     public void setXyLocation(Point newXyLocation) {
-        
+          this.point = newXyLocation;
     }
 
 
     public Room getCurrentRoom() {
-        return null;
-        
+        return currentRoom;
     }
 
 
     public void setCurrentRoom(Room newCurrentRoom) {
-        
+          this.currentRoom = newCurrentRoom;
     }
 }
