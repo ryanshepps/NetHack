@@ -18,14 +18,40 @@ public class Rogue{
 
       private ArrayList<Room> rooms = new ArrayList<Room>(); // Why do I have to malloc here?
       private ArrayList<Item> items = new ArrayList<Item>();
+      // Symbols
+      private ArrayList<String> symbolName = new ArrayList<String>();
+      private ArrayList<String> symbolSymbol = new ArrayList<String>();
+
+      private Player player = new Player();
 
       public void setPlayer(Player thePlayer){
 
       }
 
-
       public void setSymbols(String filename){
+            JSONParser parser = new JSONParser();
+            try {
+                  Object obj = parser.parse(new FileReader(filename));
+                  JSONObject jObjectSymbols = (JSONObject) obj;
 
+                  JSONArray jArraySymbols = (JSONArray) jObjectSymbols.get("symbols");
+                  for (Object symbolsObj : jArraySymbols) {
+                        JSONObject currentSymbolsObj = (JSONObject) symbolsObj;
+
+                        String currentSymbolName = currentSymbolsObj.get("name").toString();
+                        String currentSymbolSymbol = currentSymbolsObj.get("symbol").toString();
+
+                        symbolName.add(currentSymbolName);
+                        symbolSymbol.add(currentSymbolSymbol);
+                  }
+
+            } catch(FileNotFoundException e) {
+                  e.printStackTrace();
+            } catch (IOException e) {
+                  e.printStackTrace();
+            } catch (ParseException e) {
+                  e.printStackTrace();
+            }
       }
 
       public ArrayList<Room> getRooms(){
@@ -34,11 +60,10 @@ public class Rogue{
 
       public ArrayList<Item> getItems(){
         return items;
-
       }
-      public Player getPlayer(){
-        return null;
 
+      public Player getPlayer(){
+        return player;
       }
 
       public void createRooms(String filename){
@@ -64,6 +89,11 @@ public class Rogue{
                         newRoom.setWidth(roomWidth);
                         newRoom.setHeight(roomHeight);
                         newRoom.setId(roomId);
+
+                        String start = currentRoomObj.get("start").toString();
+                        if (start == "true") {
+                              player.setCurrentRoom(newRoom);
+                        }
 
                         // --DOORS ARRAY-- //
                         JSONArray jArrayDoors = (JSONArray) currentRoomObj.get("doors");
