@@ -14,6 +14,8 @@ public class Room {
       private int height;
       private ArrayList<Item> roomItems;
       private Player player;
+      private ArrayList<String> doorDirection = new ArrayList<String>();
+      private ArrayList<Integer> doorLocation = new ArrayList<Integer>();
 
       // Default constructor
       public Room() {
@@ -71,7 +73,8 @@ public class Room {
       */
 
       public void setDoor(String direction, int location){
-
+            doorDirection.add(direction);
+            doorLocation.add(location);
       }
 
       public boolean isPlayerInRoom() {
