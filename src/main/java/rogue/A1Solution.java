@@ -47,6 +47,8 @@ public class A1Solution{
             // instantiate a new Rogue object and call methods to do the required things
             Rogue game = new Rogue();
             game.createRooms(roomsFile);
-            System.out.println("We have liftoff!");
+            game.setSymbols(symbolsFile);
+
+            System.out.println(game.displayAll());
       }
 }

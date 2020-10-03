@@ -25,7 +25,7 @@ public class Rogue{
       private Player player = new Player();
 
       public void setPlayer(Player thePlayer){
-
+            this.player = player;
       }
 
       public void setSymbols(String filename){
@@ -90,10 +90,17 @@ public class Rogue{
                         newRoom.setHeight(roomHeight);
                         newRoom.setId(roomId);
 
+                        // --PLAYER-- //
                         String start = currentRoomObj.get("start").toString();
                         if (start == "true") {
                               player.setCurrentRoom(newRoom);
+
+                              Point playerLocation = new Point(1, 1); // 1, 1 will always exist on any grid.
+                              player.setXyLocation(playerLocation);
+
                         }
+                        newRoom.setPlayer(player);
+
 
                         // --DOORS ARRAY-- //
                         JSONArray jArrayDoors = (JSONArray) currentRoomObj.get("doors");
@@ -157,7 +164,15 @@ public class Rogue{
       }
 
       public String displayAll(){
-        //creates a string that displays all the rooms in the dungeon
-        return null;
+            //creates a string that displays all the rooms in the dungeon
+            String displayString = "";
+
+            for (int i = 0; i < rooms.size(); i++) {
+                  displayString += "\tRoom " + (i + 1) + "\n";
+                  displayString += rooms.get(i).displayRoom();
+                  displayString += "\n\n";
+            }
+
+            return displayString;
       }
 }

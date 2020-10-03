@@ -9,12 +9,10 @@ public class Player {
       private Point xyLocation;
       private Room currentRoom;
 
-
       // Default constructor
       public Player() {
 
       }
-
 
       public Player(String name) {
             this.name = name;
